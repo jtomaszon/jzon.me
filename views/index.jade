@@ -1,110 +1,53 @@
 extends layout
 
 block container
-  .container
+  .container(ng-app, ng-controller='cv')
     .row
     .col-xs-12
       #photo-header.text-center
-        // PHOTO (AVATAR)
         #photo
           img(src='img/avatar.png', alt='avatar')
         #text-header
           h1
             | Hello,
             br
-            | my name is
-            span Kamil
-            sup 24yo
-            | and this is my resume/cv
+            | my name is 
+            span Javier 
+            sup 30yo 
+            | and this is my resume
     .row
     .col-xs-12.col-sm-7
       // ABOUT ME
       .box
         h2 About Me
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, non, dolorem, cumque distinctio magni quam expedita velit laborum sunt amet facere tempora ut fuga aliquam ad asperiores voluptatem dolorum! Quasi.
-      // EDUCATION
-      .box
-        h2 Education
-        ul#education.clearfix
-          li
-            .year.pull-left 1990
-            .description.pull-right
-              h3 I was born in Katowice
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem, totam, dolores iste dolore est aut modi.
-          li
-            .year.pull-left 2005
-            .description.pull-right
-              h3 Secondary school specializing in artistic
-              p
-                | Eos, explicabo, nam, tenetur et ab eius deserunt aspernatur ipsum ducimus quibusdam quis voluptatibus.
-          li
-            .year.pull-left 2009
-            .description.pull-right
-              h3 First level graduation in Graphic Design
-              p
-                | Aspernatur, mollitia, quos maxime eius suscipit sed beatae ducimus quaerat quibusdam perferendis? Iusto, quibusdam asperiores unde repellat.
-          li
-            .year.pull-left 2012
-            .description.pull-right
-              h3 Second level graduation in Graphic Design
-              p Ducimus, aliquam tempore autem itaque et accusantium!
-      // EXPERIENCES
+        p(style='white-space:pre;')
+          | SysAdmin, DBA, DevOp in love with automate many processes. 
+          | Passionate for tune up and extract the best performance of servers, dbs and web applications 
+          | Infrastructure Consultant with focus in Web Applications with high availability and performance issues
+
       .box
         h2 Experiences
-        .job.clearfix
-          .col-xs-3
-            .where Google
-            .year 2013 - 2014
-          .col-xs-9
-            .profession Front-end developer / php programmer
-            .description
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, et, illum perferendis veritatis velit sunt similique qui magni totam harum tempore eius laboriosam accusantium necessitatibus voluptatum? Enim, itaque dignissimos quia.
-        .job.clearfix
-          .col-xs-3
-            .where Twitter
-            .year 2012
-          .col-xs-9
-            .profession Web Developer
-            .description
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nihil sit nemo voluptatem praesentium. Quia, qui facere consectetur libero asperiores fugiat consequuntur deserunt culpa repudiandae sed quidem voluptas explicabo soluta.
+        ul#education.clearfix
+          li(ng-repeat="work in works")
+            .year.pull-left {{work.year}}
+            .description.pull-right
+              h3 {{work.company}}
+              h5 {{work.title}}
+              p(style='white-space:pre;margin-left: 15px;') {{work.description}}
+
     .col-xs-12.col-sm-5
-      // CONTACT
+
       .box.clearfix
         h2 Contact
-        .contact-item
+        .contact-item(ng-repeat="contact in contacts")
           .icon.pull-left.text-center
-            span.fa.fa-phone.fa-fw
-          .title.only.pull-right 500 345 242
-        .contact-item
-          .icon.pull-left.text-center
-            span.fa.fa-envelope.fa-fw
-          .title.only.pull-right office@kamsolutions.pl
-        .contact-item
-          .icon.pull-left.text-center
-            span.fa.fa-twitter.fa-fw
-          .title.pull-right Twitter
-          .description.pull-right https://twitter.com/WordPress
-        .contact-item
-          .icon.pull-left.text-center
-            span.fa.fa-facebook.fa-fw
-          .title.pull-right Facebook
-          .description.pull-right https://www.facebook.com/facebook
-        .contact-item
-          .icon.pull-left.text-center
-            span.fa.fa-skype.fa-fw
-          .title.pull-right Skype
-          .description.pull-right kamsolutions.pl
-      // SKILLS
+            span.fa.fa-fw(class='{{"fa-" + contact.name}}')
+          .title.only.pull-right {{contact.value}}
+
       .box
         h2 Skills
         .skills
-          .item-skills(data-percent='1.00') HTML
-          .item-skills(data-percent='0.90') CSS
-          .item-skills(data-percent='0.80') jQuery
-          .item-skills(data-percent='0.75') PHP
-          .item-skills(data-percent='0.25') Laravel 2 (framework)
+          .item-skills(ng-repeat="skill in skills", data-percent="{{skill.value}}") {{skill.name}}
           .skills-legend.clearfix
             .legend-left.legend Beginner
             .legend-left.legend
@@ -112,21 +55,24 @@ block container
             .legend-right.legend
               span Expert
             .legend-right.legend Master
-      // LANGUAGES
+
+      .box
+        h2 Education
+        .job.clearfix(ng-repeat="study in studies")
+          .col-xs-3
+            .where {{study.company}}
+            .year {{study.year}}
+          .col-xs-9
+            .profession {{study.description}}
+
       .box
         h2 Languages
         #language-skills
-          .skill
-            | Polish
+          .skill(ng-repeat="language in languages") {{language.name}}
             .icons.pull-right
-              .icons-red(style='width: 80%;')
-          .skill
-            | English
-            .icons.pull-right
-              .icons-red(style='width: 60%;')
-      // HOBBIES
+              .icons-red(style='width: {{language.value * 100}}%;')
+
       .box
         h2 Hobbies
-        .hobby Photography
-        .hobby Fitness
-        .hobby Programming
+        .hobby(ng-repeat="hobby in hobbies") 
+          {{hobby}} 

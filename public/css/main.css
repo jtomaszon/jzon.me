@@ -1,12 +1,4 @@
 /*******************************************
-3ColorResume
-Author: office@kamsolutions.pl
-*******************************************/
-/*******************************************
-FONTS
-*******************************************/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
-/*******************************************
 SETTINGS
 *******************************************/
 @charset "utf-8";
@@ -68,7 +60,7 @@ PHOTO (AVATAR)
   line-height: 1.5em;
 }
 #text-header h1 span{
-  color: #F0563D;
+  color: #3D3DF0;
 }
 #text-header h1 sup{
   opacity: 0.5;
@@ -88,7 +80,7 @@ DEFAULT BOX
   margin-bottom: 15px;
 }
 .box h2{
-  color: #EC7263;
+  color: #6363EC;
   font-size: 1.8em;
   font-weight: 700;
   text-transform: uppercase;
@@ -118,13 +110,13 @@ EDUCATION
   top: 0;
   content: ' ';
   display: block;
-  background: #ec7263;
-  background: -moz-linear-gradient(top,  #ffffff 0%, #ec7263 7%, #ec7263 89%, #ffffff 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(7%,#ec7263), color-stop(89%,#ec7263), color-stop(100%,#ffffff));
-  background: -webkit-linear-gradient(top,  #ffffff 0%,#ec7263 7%,#ec7263 89%,#ffffff 100%);
-  background: -o-linear-gradient(top,  #ffffff 0%,#ec7263 7%,#ec7263 89%,#ffffff 100%);
-  background: -ms-linear-gradient(top,  #ffffff 0%,#ec7263 7%,#ec7263 89%,#ffffff 100%);
-  background: linear-gradient(to bottom,  #ffffff 0%,#ec7263 7%,#ec7263 89%,#ffffff 100%);
+  background: #6363EC;
+  background: -moz-linear-gradient(top,  #ffffff 0%, #6363EC 7%, #6363EC 89%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(7%,#6363EC), color-stop(89%,#6363EC), color-stop(100%,#ffffff));
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#6363EC 7%,#6363EC 89%,#ffffff 100%);
+  background: -o-linear-gradient(top,  #ffffff 0%,#6363EC 7%,#6363EC 89%,#ffffff 100%);
+  background: -ms-linear-gradient(top,  #ffffff 0%,#6363EC 7%,#6363EC 89%,#ffffff 100%);
+  background: linear-gradient(to bottom,  #ffffff 0%,#6363EC 7%,#6363EC 89%,#ffffff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
 }
 #education li{
@@ -236,7 +228,7 @@ SKILLS
 *******************************************/
 .item-skills{
   height: 30px;
-  background: #F0563D;
+  background: #3D3DF0;
   color: #fff;
   padding: 5px 10px;
   margin-bottom: 5px;
@@ -317,7 +309,7 @@ HOBBIES
   margin-right: 5px;
   margin-bottom: 5px;
   padding: 5px 5px 5px 25px;
-  background: #A75265;
+  background: #5151FF;
   position: relative;
   font-size: 1.2em;
 }
