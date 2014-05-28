@@ -3,3 +3,4 @@
 *.sublime-workspace
 node_modules/
 npm-debug.log
+newrelic.js
