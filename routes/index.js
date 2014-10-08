@@ -1,22 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var redis = require("redis"),
+  cache = redis.createClient(
+		  process.env.REDIS_PORT || 6379,
+		  process.env.REDIS_HOST || 'localhost');
 
-// TODO: Need implement Memcached
-var cache = {};
+cache.on("error", function (err) {
+  console.log("Error " + err);
+});
 
 function getPageFromCache(url, callback) {
-    if (cache[url]) {
-        // Get page from cache
-        callback(undefined, cache[url]);
-    } else {
-        // Get nothing
-        callback();
-    }
+  cache.get(url, function(err, content) {
+    (!err) ? callback(undefined, content) : callback();
+  });
 };
 
 function setPageToCache(url, content) {
-    // Save to cache
-    cache[url] = content;
+  cache.set(url, content, redis.print);
 };
 
 /* GET home page. */
